@@ -10,3 +10,5 @@ Bienvenue dans mon plan de veille en PHP ! Ce projet a pour but de me familiaris
 
 - **Langage** : PHP 8
 - **Framework** : Symfony 7
+- **Bundle** : 
+    - https://github.com/facile-it/mongodb-bundle

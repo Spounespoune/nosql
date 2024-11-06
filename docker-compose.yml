@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  phpfpm:
+    image: php:8.3-fpm
+    container_name: phpfpm
+    build: docker/php
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html:cached # Monte le répertoire local dans le conteneur
+      - .docker/php/php.ini:/usr/local/etc/php/php.ini # Optionnel : fichier de configuration PHP personnalisé
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
+
+  mongodb:
+    image: mongo:latest # Utilise la dernière version de MongoDB
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017" # Expose le port MongoDB par défaut
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - mongodb_data:/data/db # Monte un volume pour les données persistantes
+    networks:
+      - app-network
+
+  webserver:
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - ./public:/var/www/html:ro,cached
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf # Utilisez un fichier de configuration nginx personnalisé
+    ports:
+      - "8080:80"
+    depends_on:
+      - phpfpm
+    networks:
+      - app-network
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge
