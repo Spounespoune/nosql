@@ -28,3 +28,9 @@ services:
         class: MongoDB\Client
         arguments:
             $uri: '%env(MONGODB_URI)%'
+
+    App\MongoDb\Service\MongoDbService:
+        class: App\MongoDb\Service\MongoDbService
+        arguments:
+            $client: '@MongoDB\Client'
+            $database: '%env(MONGODB_NAME)%'
