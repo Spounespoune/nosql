@@ -5,18 +5,17 @@ namespace App\Repository;
 use App\MongoDb\Service\MongoDbService;
 use MongoDB\BSON\ObjectId;
 use MongoDB\Collection;
-use MongoDB\Model\BSONDocument;
 
 class TaskRepository extends AbstractRepository
 {
-    private const TABLE_NAME = 'task';
+    private const COLLECTION_NAME = 'task';
     private readonly Collection $collection;
 
     public function __construct(MongoDbService $mongoDbService)
     {
         parent::__construct($mongoDbService);
-        $this->collection = $this->mongoDbService
-            ->getCollection(self::TABLE_NAME);
+        $this->collectionName = self::COLLECTION_NAME;
+        $this->collection = $this->getCollection();
     }
 
     public function findAll(): array

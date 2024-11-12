@@ -1,9 +1,10 @@
 # TODO List
 
 ## Priorité Haute
-- [ ] Voir comment un objet est stocker dans mongo
+- [x] Voir comment un objet est stocker dans mongo
 - [ ] Implémenter l'insertion, modification et suppression
 - [ ] Voir les contraintes d'indexation
+- [ ] Validateur
 - [ ] Comprendre les bonnes pratiques (performance)
 
 ## Priorité Moyenne
