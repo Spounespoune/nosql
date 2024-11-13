@@ -14,7 +14,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 #[AsCommand(name: 'app:mongo_db', description: 'Connection test')]
-class MongoDbCommand extends Command
+class MongoDbTestCommand extends Command
 {
     private TaskRepository $taskRepository;
     private MongoDbService $mongoDbService;
