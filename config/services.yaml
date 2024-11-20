@@ -33,4 +33,5 @@ services:
         class: App\MongoDb\Service\MongoDbService
         arguments:
             $client: '@MongoDB\Client'
-            $database: '%env(MONGODB_NAME)%'
+            $databaseName: '%env(MONGODB_NAME)%'
+

@@ -21,6 +21,9 @@ logs-nginx:
 logs-phpfpm:
 	docker logs phpfpm -f
 
+logs-mongo:
+	docker logs mongodb -f
+
 # Supprime les conteneurs, les réseaux et les volumes
 clean:
 	docker-compose down -v
