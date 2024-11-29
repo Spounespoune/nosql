@@ -43,3 +43,6 @@ nginx:
 
 fpm:
 	docker exec -it phpfpm bash
+
+build:
+	docker-compose build

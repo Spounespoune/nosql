@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Command;
+namespace App\Command\MongoDb;
 
 use App\MongoDb\Service\MongoDbService;
 use App\Repository\TaskRepository;
 use MongoDB\BSON\UTCDateTime;
 use MongoDB\Client;
 use MongoDB\Driver\Exception\BulkWriteException;
-use MongoDB\Driver\Exception\Exception;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
