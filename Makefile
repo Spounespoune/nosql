@@ -44,5 +44,11 @@ nginx:
 fpm:
 	docker exec -it phpfpm bash
 
+elastic:
+	docker exec -it elasticsearch bash
+
+kibana:
+	docker exec -it kibana bash
+
 build:
 	docker-compose build
